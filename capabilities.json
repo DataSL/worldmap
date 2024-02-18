@@ -1,0 +1,306 @@
+{
+  "dataRoles": [
+    {
+      "displayName": "Country",
+      "name": "country",
+      "kind": "Grouping"
+    },
+    {
+      "displayName": "Value",
+      "name": "value",
+      "kind": "Measure"
+    },
+    {
+      "displayName": "Other values",
+      "name": "otherValues",
+      "kind": "Measure"
+    },
+    {
+      "displayName": "Category",
+      "name": "category",
+      "kind": "Grouping"
+    }
+  ],
+  "privileges": [],
+  "objects": {
+    "mapColors": {
+      "properties": {
+        "countryBordersColor": {
+          "displayName": "Country borders color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "lowestValueColor": {
+          "displayName": "Lowest value color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "highestValueColor": {
+          "displayName": "Highest value color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "backgroundColor": {
+          "displayName": "Map background color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "noValueColor": {
+          "displayName": "No value color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "tooltip": {
+      "displayName": "Tooltip",
+      "properties": {
+        "displayUnits": {
+          "type": {
+            "formatting": {
+              "labelDisplayUnits": true
+            }
+          }
+        },
+        "valueDecimalPlaces": {
+          "type": {
+            "numeric": true
+          }
+        },
+        "horizontalPadding": {
+          "type": {
+            "numeric": true
+          }
+        },
+        "verticalPadding": {
+          "type": {
+            "numeric": true
+          }
+        },
+        "separatorColor": {
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "titleFontSize": {
+          "type": {
+            "formatting": {
+              "fontSize": true
+            }
+          }
+        },
+        "titleFontFamily": {
+          "type": {
+            "formatting": {
+              "fontFamily": true
+            }
+          }
+        },
+        "titleBold": {
+          "type": {
+            "bool": true
+          }
+        },
+        "titleItalic": {
+          "type": {
+            "bool": true
+          }
+        },
+        "titleUnderline": {
+          "type": {
+            "bool": true
+          }
+        },
+        "titleColor": {
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "mainValueFontSize": {
+          "type": {
+            "formatting": {
+              "fontSize": true
+            }
+          }
+        },
+        "mainValueFontFamily": {
+          "type": {
+            "formatting": {
+              "fontFamily": true
+            }
+          }
+        },
+        "mainValueBold": {
+          "type": {
+            "bool": true
+          }
+        },
+        "mainValueItalic": {
+          "type": {
+            "bool": true
+          }
+        },
+        "mainValueUnderline": {
+          "type": {
+            "bool": true
+          }
+        },
+        "mainValueColor": {
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "secondaryValuesFontSize": {
+          "type": {
+            "formatting": {
+              "fontSize": true
+            }
+          }
+        },
+        "secondaryValuesFontFamily": {
+          "type": {
+            "formatting": {
+              "fontFamily": true
+            }
+          }
+        },
+        "secondaryValuesBold": {
+          "type": {
+            "bool": true
+          }
+        },
+        "secondaryValuesItalic": {
+          "type": {
+            "bool": true
+          }
+        },
+        "secondaryValuesUnderline": {
+          "type": {
+            "bool": true
+          }
+        },
+        "secondaryValuesColor": {
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "countries": {
+      "displayName": "Countries",
+      "properties": {
+        "country": {
+          "displayName": "country",
+          "type": {
+            "bool": true
+          }
+        }
+      }
+    },
+    "category": {
+      "displayName": "Category",
+      "properties": {
+        "useCategory": {
+          "type": {
+            "bool": true
+          }
+        },
+        "categoryColor": {
+          "displayName": "Category color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "dataViewMappings": [
+    {
+      "conditions": [
+        {
+          "country": { "max": 1 },
+          "value": { "max": 1 },
+          "category": { "max": 1 }
+        }
+      ],
+      "categorical": {
+        "categories": {
+          "for": { "in": "category" }
+        },
+        "values": {
+          "select": [
+            { "bind": { "to": "country" } },
+            { "bind": { "to": "value" } },
+            { "bind": { "to": "otherValues" } }
+          ]
+        }
+      },
+      "table": {
+        "rows": {
+          "select": [
+            {
+              "for": {
+                "in": "country"
+              }
+            },
+            {
+              "for": {
+                "in": "value"
+              }
+            },
+            {
+              "for": {
+                "in": "otherValues"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

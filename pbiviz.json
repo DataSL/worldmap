@@ -1,0 +1,24 @@
+{
+  "visual": {
+    "name": "worldmap",
+    "displayName": "worldmap",
+    "guid": "worldmap4BCE40F4C2954639B28D7DC914AE291D",
+    "visualClassName": "Visual",
+    "version": "1.0.0.0",
+    "description": "A beautiful worldmap",
+    "supportUrl": "data-slconsulting.com",
+    "gitHubUrl": ""
+  },
+  "apiVersion": "5.3.0",
+  "author": {
+    "name": "Data SL Consulting",
+    "email": "contact@data-slconsulting.com"
+  },
+  "assets": { "icon": "assets/icon.png" },
+  "externalJS": null,
+  "style": "style/visual.less",
+  "capabilities": "capabilities.json",
+  "dependencies": null,
+  "stringResources": [],
+  "version": "1.0.0.0"
+}
